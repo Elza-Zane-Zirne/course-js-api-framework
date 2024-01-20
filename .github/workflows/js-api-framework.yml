@@ -8,11 +8,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-docker-image:
-    runs-on: ubuntu-latest
+  docker:
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Build docker image
-        run: echo "Building Docker image..."
-
-        # {dockerhub_username}/api-tests:latest
+      - uses: ./.github/actions/build

@@ -1,0 +1,12 @@
+name: 'Build Docker image'
+description: 'Action for building docker image for api-tests'
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Building docker image and pushing it to docker registry..."
+    - name: Build docker image
+      run: sh "docker build --no-cache -t ezz/api-tests:latest ."
+      shell: bash
+    - name: Pushing docker image to docker registry...
+      run: sh "docker push ezz/api-tests:latest"
+      shell: bash
